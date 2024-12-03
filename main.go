@@ -204,6 +204,9 @@ type Swimming struct {
 // Это переопределенный метод Calories() из Training.
 func (s Swimming) meanSpeed() float64 {
 	// вставьте ваш код ниже
+	if s.Training.Duration == 0 {
+		return 0
+	}
 	duration := s.Training.Duration.Hours()
 	meanSpeed := s.LengthPool * s.CountPool / MInKm / duration
 	return float64(meanSpeed)
@@ -230,7 +233,7 @@ func (s Swimming) TrainingInfo() InfoMessage {
 		TrainingType: s.Training.TrainingType,
 		Duration:     s.Training.Duration,
 		Distance:     s.Training.distance(),
-		Speed:        s.Training.meanSpeed(),
+		Speed:        s.meanSpeed(),
 		Calories:     s.Calories(),
 	}
 }
