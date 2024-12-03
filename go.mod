@@ -1,3 +1,3 @@
-module main.go
+module github.com/Yandex-Practicum/go-1fl-homework-sprint5
 
-go 1.23.2
+go 1.20
